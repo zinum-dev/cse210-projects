@@ -35,5 +35,15 @@ class Program
             Console.WriteLine("F");
         }
 
+
+         if ( gradePercentage >= 70 )
+         {
+            Console.WriteLine("Congratulations, you passed the course!");
+         }
+         else
+         {
+            Console.WriteLine("Unfortunately, you didn't pass this time, but you can try again.");
+         }
+
     }
 }
