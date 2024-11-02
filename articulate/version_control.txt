@@ -1,0 +1,18 @@
+What is version control and why is it important?
+Version Control is a way to control the changes of an application.
+With it we can know who made the changes, when and why.
+It is important to keep this information because when the application grows,
+it will be hard to know what happened with it. And when we have a team coding together,
+we need to know who made the changes, which task describes the change and why it
+ was request.
+
+In some team using git repositories, maybe an developer add a new feature that interfers in the login and stoped the application,
+using version control we can return to the previous code then solve the problem and commit it again.
+Imagine that two team members of this teams are working in the same application, 
+both need to remember to use 'git pull' before start coding
+it will update the local code with the changes made in the remote repository.
+And to write a good message when use 'git commit -m "Some message"' to describe what have do done.
+
+
+
+
