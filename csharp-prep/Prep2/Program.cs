@@ -7,33 +7,30 @@ class Program
         Console.WriteLine("What is your grade percentage?");
         int gradePercentage = int.Parse(Console.ReadLine());
 
+        string letter;
 
-        // Grade Scale:
-        // A >= 90
-        // B >= 80
-        // C >= 70
-        // D >= 60
-        // F < 60
         if( gradePercentage >= 90) 
         {
-            Console.WriteLine("A");
+            letter = "A";
         }
         else if ( gradePercentage >= 80) 
         {
-            Console.WriteLine("B");
+            letter = "B";
         }
         else if ( gradePercentage >= 70) 
         {
-            Console.WriteLine("C");
+            letter = "C";
         }
         else if ( gradePercentage >= 60) 
         {
-            Console.WriteLine("D");
+            letter = "D";
         }
         else
         {
-            Console.WriteLine("F");
+            letter = "F";
         }
+        
+        Console.WriteLine(letter);
 
 
          if ( gradePercentage >= 70 )
