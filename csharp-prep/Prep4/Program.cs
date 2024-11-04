@@ -8,9 +8,9 @@ class Program
         List<int> numList = new List<int>();
         int num = -1;
 
+        Console.WriteLine("Enter a list of numbers, type 0 when finished.");
         while (num != 0)
         {
-            Console.WriteLine("Enter a list of numbers, type 0 when finished.");
             Console.Write("Enter number: ");
             num = int.Parse(Console.ReadLine());
             if (num != 0)
