@@ -1,0 +1,20 @@
+What is encapsulation and why is it important?
+
+First of all, encapsulation is not just putting private in everything.
+The objective is to control the access to information in a class, hiding what is not necessary for the outside to know, and exposing only what is necessary.
+Avoiding breaking code. Together with abstraction, encapsulation helps you to isolate code and let each class take care of its own members and methods.
+This helps to keep the code changeable and maintainable.
+
+Using the fraction example, we can see a great use for encapsulation.
+We can verify the bottom number and not let the user set it to 0, by changing the SetBottom method:
+
+private int _bottom;
+
+public void SetBottom(int bottom)
+{
+    if (bottom != 0)
+    {
+        _bottom = bottom;
+    }
+}
+This way, we ensure that the user will never be able to set _bottom to 0.
