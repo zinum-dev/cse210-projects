@@ -5,6 +5,11 @@
       "_prompt": "What specific event or situation did not go as planned today?",
       "_response": "Study until late",
       "_date": "2024-11-07T00:00:00-03:00"
+    },
+    {
+      "_prompt": "What is something I am looking forward to tomorrow?",
+      "_response": "Keep studing..",
+      "_date": "2024-11-13T00:00:00-03:00"
     }
   ]
 }
