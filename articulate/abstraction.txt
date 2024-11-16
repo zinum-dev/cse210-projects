@@ -1,0 +1,9 @@
+What is abstraction and why is it important?
+
+Abstraction is to make it simple. In a big program, we cannot control everything at every moment.
+Let me give an example: imagine you have a payment system that calculates the taxes to be paid for each employee.
+We do not want to control this when printing the employee salary, so we use abstraction. We do not care how these calculations are made.
+Imagine we have an Employee Class, and we will use employee.getTaxes() to get the taxes. We do not care how this is done; we just want to get the taxes.
+Now it is simple: to get the tax, just call employee.getTaxes().
+This is great because we do not have to worry about how it is made, and if the way that the taxes are calculated changes, we do not have to change our code that uses it, just change the method inside the class. It will continue to call employee.getTaxes(), and it will work.
+Concluding, abstraction is to take something complex and extract only the essential, turning it into something simple.
