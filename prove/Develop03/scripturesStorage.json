@@ -1,0 +1,30 @@
+
+[
+    {
+        "_reference": {
+            "_book":"Proverbs",
+            "_chapter":"3",
+            "_verse":"5",
+            "_endVerse":"6"
+        },
+        "_scripture": "5 Trust in the Lord with all thine heart; and lean not unto thine own understanding. 6 In all thy ways acknowledge him, and he shall direct thy paths."
+    },
+    {
+        "reference": "John 3:16",
+        "_reference": {
+            "_book":"John",
+            "_chapter":"3",
+            "_verse":"16",
+            "_endVerse":"0"
+        },
+        "_scripture": "16 For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."
+    },
+    {
+        "_reference": {
+            "_book":"1 Nephi",
+            "_chapter":"3",
+            "_verse":"7"
+        },
+        "_scripture": "7 And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them."
+    }
+]
