@@ -15,7 +15,7 @@ class Program
         while (quit != "quit")
         {
             Console.Clear();
-
+            Console.WriteLine($"{scripture.GetDisplayText()}");
 
 
 

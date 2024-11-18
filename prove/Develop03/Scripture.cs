@@ -1,3 +1,5 @@
+using System.Text;
+
 class Scripture
 {
     private Reference _reference;
@@ -5,7 +7,14 @@ class Scripture
 
     public Scripture(Reference reference, string text)
     {
-
+        _reference = reference;
+        _words = new List<Word>();
+        string[] words = text.Split(' ');
+        foreach (string part in words)
+        {
+            Word word = new Word(part);
+            _words.Add(word);
+        }
     }
 
 
@@ -16,7 +25,15 @@ class Scripture
 
     public string GetDisplayText()
     {
-        return "";
+        StringBuilder displayText = new StringBuilder($"{_reference.GetDisplayText()}");
+        displayText.Append(' ');
+        foreach (Word word in _words)
+        {
+            displayText.Append(word.GetDisplayText());
+            displayText.Append(' ');
+        }
+
+        return displayText.ToString();
     }
 
     public bool IsCompletelyHidden()

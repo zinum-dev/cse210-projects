@@ -26,6 +26,10 @@ class Word
 
     public string GetDisplayText()
     {
+        if(IsHidden())
+        {
+            return new string('_', _text.Count());
+        }
         return _text;
     }
 }
