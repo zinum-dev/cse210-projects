@@ -1,3 +1,8 @@
+// I stored the scriptures in a JSON file and created a class to read the JSON file and return the data.  
+// I hide the words according to the size of the scripture, with a maximum of 10 iterations.  
+// The words hidden are never the same.  
+// The user can choose which scripture they want to try to memorize.  
+
 using System.Text.Json;
 
 
@@ -16,14 +21,15 @@ class Program
         {
             Console.Clear();
             Console.WriteLine($"{scripture.GetDisplayText()}");
-
-
-
-
-
-
             Console.WriteLine("Press enter to continue or type 'quit' to finish:");
             quit = Console.ReadLine();
+
+            if(scripture.IsCompletelyHidden())
+            {
+                break;
+            }
+
+            scripture.HideRandomWords();
         }
     }
 
@@ -59,10 +65,18 @@ class Program
                     string book = referenceJson.GetProperty("_book").GetString();
                     string chapter = referenceJson.GetProperty("_chapter").GetString();
                     string verse = referenceJson.GetProperty("_verse").GetString();
-                    string endVerse = referenceJson.TryGetProperty("_endVerse", out JsonElement ev) ? ev.GetString() : "0";
+                    string endVerse = referenceJson.TryGetProperty("_endVerse", out JsonElement ev) ? ev.GetString() : null;
 
-                    Reference reference = new(book, int.Parse(chapter), int.Parse(verse), int.Parse(endVerse));
-                    storage.SetReference(reference);
+                    if(endVerse is not null)
+                    {
+                        Reference reference = new(book, int.Parse(chapter), int.Parse(verse), int.Parse(endVerse));
+                        storage.SetReference(reference);
+                    }
+                    else
+                    {
+                        Reference reference = new(book, int.Parse(chapter), int.Parse(verse));
+                        storage.SetReference(reference);
+                    }
                 }
 
                 if (item.TryGetProperty("_scripture", out JsonElement scripture))

@@ -5,6 +5,8 @@ class Scripture
     private Reference _reference;
     private List<Word> _words;
 
+    private int _hiddenCount;
+
     public Scripture(Reference reference, string text)
     {
         _reference = reference;
@@ -15,12 +17,30 @@ class Scripture
             Word word = new Word(part);
             _words.Add(word);
         }
+        _hiddenCount = 0;
     }
 
 
-    public void HideRandomWords(int numberToHide)
+    public void HideRandomWords()
     {
-
+        int numberToHide = (_words.Count/10) + 1;
+        Random random = new Random();
+        for(int i=0;i<numberToHide;i++)
+        {
+            if( _hiddenCount < _words.Count)
+            {
+                int randomNumber = random.Next(0,_words.Count);
+                if(!_words[randomNumber].IsHidden())
+                {
+                    _words[randomNumber].Hide();
+                    _hiddenCount++;
+                }
+                else
+                {
+                    i--;
+                }
+            }
+        }
     }
 
     public string GetDisplayText()
@@ -38,6 +58,6 @@ class Scripture
 
     public bool IsCompletelyHidden()
     {
-        return false;
+        return _hiddenCount >= _words.Count;
     }
 }
