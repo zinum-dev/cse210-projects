@@ -1,3 +1,4 @@
+
 class Video
 {
     private string _title;
@@ -12,7 +13,7 @@ class Video
         _length = length;
         _comments = new List<Comment>();
     }
-    public int GetNumberOfComments(){
+    private int GetNumberOfComments(){
         return _comments.Count;
     }
 
@@ -26,8 +27,9 @@ class Video
         Console.WriteLine($"Title: {_title}");
         Console.WriteLine($"Author: {_author}");
         Console.WriteLine($"Duration: {_length}");
-        Console.WriteLine();
+        Console.WriteLine($"Number of comments: {GetNumberOfComments()}");
     }
+
     public void ListComments()
     {
         foreach (Comment comment in _comments)
