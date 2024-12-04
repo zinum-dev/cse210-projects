@@ -9,6 +9,6 @@ class WritingAssignment : Assignment
 
     public string GetWritingInformation()
     {
-        return $"{_title} by {base.GetStudentName()}";
+        return $"{_title} by {GetStudentName()}";
     }    
 }
