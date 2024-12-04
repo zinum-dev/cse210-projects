@@ -5,6 +5,9 @@ The objective is to control the access to information in a class, hiding what is
 Avoiding breaking code. Together with abstraction, encapsulation helps you to isolate code and let each class take care of its own members and methods.
 This helps to keep the code changeable and maintainable.
 
+A simple application of encapsulation is when we want to represent a fraction. We cannot allow 0 in the denominator because dividing by 0 is undefined and will break the code, causing a divide-by-zero error. Therefore, every time we set the bottom number in a fraction, we need to verify that it is not 0.
+In this case, the members of the class should be private, and we need a SetBottom method to control access to the denominator.
+
 Using the fraction example, we can see a great use for encapsulation.
 We can verify the bottom number and not let the user set it to 0, by changing the SetBottom method:
 
@@ -17,4 +20,5 @@ public void SetBottom(int bottom)
         _bottom = bottom;
     }
 }
+
 This way, we ensure that the user will never be able to set _bottom to 0.
