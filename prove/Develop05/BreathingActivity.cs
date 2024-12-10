@@ -10,9 +10,7 @@ class BreathingActivity : Activity
     {
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(_duration);
-        Console.Clear();
-        Console.WriteLine("Get ready...");
-        ShowSpinner(5);
+
 
         while (DateTime.Now < futureTime)
         {

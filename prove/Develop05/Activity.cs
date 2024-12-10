@@ -12,10 +12,14 @@ class Activity
 
     public void DisplayStartingMessage()
     {
-        Console.WriteLine($"Welcome to {_name} Activity");
+        Console.WriteLine($"Welcome to the {_name} Activity");
         Console.WriteLine($"\n{_description}\n");
         Console.Write($"How long, in seconds, would you like for your session? ");
         _duration = int.Parse(Console.ReadLine());
+        Console.Clear();
+        Console.WriteLine("Get ready...");
+        ShowSpinner(5);
+        Console.WriteLine();
     }
 
     public void DisplayEndingMessage()
@@ -42,6 +46,7 @@ class Activity
             i++;
             i %= spinner.Count;
         }
+        
     }
 
     public void ShowCountDown(int seconds)
