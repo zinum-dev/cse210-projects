@@ -1,0 +1,28 @@
+What is inheritance and why is it important?
+
+Inheritance is the ability of one class to obtain the attributes and methods of another class.
+This reduces duplication of code and allows you to reuse code in two or more classes that share the same behavior by creating a parent class.
+
+For example, a car is an automobile, and a bus is also an automobile.
+We can create a parent class Automobile and two child classes, Car and Bus.
+Everything that is common to both children is placed in the parent, such as seat capacity, number of axles, or the registration certificate.
+
+public BreathingActivity() : base("Breathing", "This activity will help you relax by walking you through breathing.")
+
+In this code, we initialize the parent class using a colon and base(...).
+Another use is accessing _duration in the child class because it is declared as protected in the parent.
+
+public void Run()
+{
+    DateTime startTime = DateTime.Now;
+    DateTime futureTime = startTime.AddSeconds(_duration);
+
+    while (DateTime.Now < futureTime)
+    {
+        Console.Write("\nBreathe in...");
+        ShowCountDown(4);
+        Console.Write("\nBreathe out...");
+        ShowCountDown(5);
+        Console.WriteLine();
+    }        
+}
