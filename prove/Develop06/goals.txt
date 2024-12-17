@@ -1,4 +1,4 @@
-10
+0
 SimpleGoal|a|qwe|10|False
 EternalGoal|b|rty|20
 ChecklistGoal|c|uio|30|50|4|0

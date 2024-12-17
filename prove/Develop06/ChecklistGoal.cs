@@ -27,9 +27,14 @@ class ChecklistGoal : Goal
     public int GetBonus() => _bonus;
     public void SetBonus(int bonus) => _bonus = bonus;
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-
+        _amountCompleted++;
+        if(_amountCompleted >= _target)
+        {
+            return GetPoints() + GetBonus();
+        }
+        return GetPoints();
     }
 
     public override bool IsComplete()
@@ -39,7 +44,7 @@ class ChecklistGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"ChecklistGoal|{GetShortName()}|{GetDescription()}|{GetPoints()}|{GetBonus()}|{GetTarget()}|{GetAmountCompleted()}\n";
     }
 
     public override string GetDetailsString()

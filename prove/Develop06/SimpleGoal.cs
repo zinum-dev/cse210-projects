@@ -15,9 +15,10 @@ class SimpleGoal : Goal
         _isComplete = isComplete;
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-
+        _isComplete = true;
+        return GetPoints();
     }
 
     public override bool IsComplete()
@@ -27,6 +28,6 @@ class SimpleGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"SimpleGoal|{GetShortName()}|{GetDescription()}|{GetPoints()}|{IsComplete()}\n";
     }
 }

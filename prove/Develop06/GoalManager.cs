@@ -63,7 +63,13 @@ public class GoalManager
 
     public void ListGoalNames()
     {
-        
+        Console.WriteLine("The Goals are:");
+        int index = 1;
+        foreach(Goal goal in _goals)
+        {
+            Console.WriteLine($"{index}. {goal.GetShortName()}");
+            index++;
+        }
     }
 
     public void ListGoalDetails()
@@ -114,32 +120,27 @@ public class GoalManager
 
     public void RecordEvent()
     {
+        ListGoalNames();
+        Console.Write("Which goal did you accomplish? ");
+        int goalIndex = int.Parse(Console.ReadLine());
+        if(goalIndex >= 0 && goalIndex < _goals.Count)
+        {
+            _score += _goals[goalIndex - 1].RecordEvent();
+
+        }
+
+
         
     }
 
     public void SaveGoals()
     {
         string filename = "goals.txt";
-        var options = new JsonSerializerOptions { WriteIndented = true };
         string fileString = $"{ _score }\n";
-                            
 
         foreach (var goal in _goals)
         {
-            var type = goal.GetType();
-            if (type == typeof(SimpleGoal))
-            {
-                fileString += $"SimpleGoal|{goal.GetShortName()}|{goal.GetDescription()}|{goal.GetPoints()}|{goal.IsComplete()}\n";
-            }
-            if (type == typeof(EternalGoal))
-            {
-                fileString += $"EternalGoal|{goal.GetShortName()}|{goal.GetDescription()}|{goal.GetPoints()}\n";
-            }
-            if (goal is ChecklistGoal checklistGoal)
-            {
-                ChecklistGoal auxGoal = goal as ChecklistGoal;
-                fileString += $"ChecklistGoal|{auxGoal.GetShortName()}|{auxGoal.GetDescription()}|{auxGoal.GetPoints()}|{auxGoal.GetBonus()}|{auxGoal.GetTarget()}|{auxGoal.GetAmountCompleted()}\n";
-            }
+            fileString += goal.GetStringRepresentation();         
         }
         File.WriteAllText(filename, fileString);
     }    
