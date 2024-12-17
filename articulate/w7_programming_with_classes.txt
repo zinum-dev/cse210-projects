@@ -1,0 +1,30 @@
+Articulate the principles of programming with classes.
+
+Abstraction
+Encapsulation
+Inheritance
+Polymorphism
+
+Briefly define the principle.
+How did you use that principle in one of your programs.
+How did using that principle help that program become more flexible for future changes?
+Your response must:
+
+Explain the meaning of each principle.
+Highlight how each principle was used in a program that you wrote.
+Explain how each principles make makes that program more flexible for future changes.
+Thoroughly explain these concepts. (This likely cannot be done in less than 100 words.)
+
+The principles of programming with classes are:
+Abstraction is used to simplify the code because we cannot keep track of all the code at the same time. We need to break it into small pieces and abstract what other parts of the code will do. We simply trust that the other part is doing its job.
+In every class, we see abstraction. When the main code calls a method, it doesn't matter how it is done; we just call the method, provide the parameters, and wait for the answer.
+
+Encapsulation is used to protect the code from programmers. As programmers, we tend to do things that shouldn't be done. That’s where encapsulation comes in: it protects the code from the future you because you might forget that certain parts of the code can be changed. With encapsulation, these parts are protected and can only be modified by following pre-established rules.
+In the fraction program for example, the denominator could not be 0.
+
+Inheritance is used to avoid duplication and to reuse code. When similar classes share the same behavior, one can inherit attributes and methods from the other in a hierarchical relationship.
+For example, in the case of goals, where every goal has a name, a description, and some points.
+
+Polymorphism is the ability to take on many forms, or in other words, different behaviors. This principle helps us write code that works in different situations. Polymorphism depends on the other principles of object-oriented programming, and when used, it allows us to simplify the code by giving each class the responsibility for its own behavior.
+In the future, if a new class is created, this part of the code will keep working and will now have a different behavior. I use polymorphism when calling a method in the parent Goal class, and the result is defined by the subclass.
+

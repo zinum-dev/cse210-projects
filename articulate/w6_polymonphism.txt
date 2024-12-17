@@ -1,0 +1,34 @@
+What is polymorphism and why is it important?
+
+Polymorphism is the ability to take on many forms and behaviors. The same code behaves differently in different contexts.
+A core benefit is that it makes programs flexible and allows classes to manage their own behavior. 
+As we see in the example above, the responsibility to define the behavior of a method lies with the class itself.
+
+
+The list can hold different types of goals.
+private List<Goal> _goals;
+
+if (goalType == 1){
+    SimpleGoal simpleGoal = new SimpleGoal(name, description,points);
+    _goals.Add(simpleGoal);
+}
+if (goalType == 2){
+    EternalGoal eternalGoal = new EternalGoal(name, description,points);
+    _goals.Add(eternalGoal);
+}   
+if (goalType == 3){
+    Console.Write("How many times does this goal need to be accomplished for a bonus? ");
+    int target = int.Parse(Console.ReadLine());
+    Console.Write("What is the bonus for accomplishing it that many times? ");
+    int bonus = int.Parse(Console.ReadLine());
+
+    ChecklistGoal checklistGoal = new ChecklistGoal(name, description,points,target,bonus);
+    _goals.Add(checklistGoal);
+}
+
+and for each goal, we have a different representation by calling the same method.
+
+foreach (Goal goal in _goals)
+{
+    fileString += goal.GetStringRepresentation();         
+}
