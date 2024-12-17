@@ -39,7 +39,7 @@ class ChecklistGoal : Goal
 
     public override bool IsComplete()
     {
-        return false;
+        return _amountCompleted >= _target;
     }
 
     public override string GetStringRepresentation()

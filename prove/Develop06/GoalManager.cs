@@ -123,10 +123,12 @@ public class GoalManager
         ListGoalNames();
         Console.Write("Which goal did you accomplish? ");
         int goalIndex = int.Parse(Console.ReadLine());
-        if(goalIndex >= 0 && goalIndex < _goals.Count)
+        if(goalIndex >= 0 && goalIndex <= _goals.Count)
         {
-            _score += _goals[goalIndex - 1].RecordEvent();
-
+            int points = _goals[goalIndex - 1].RecordEvent();
+            _score += points;
+            Console.WriteLine($"Congratulations! you have earned {points} points");
+            Console.WriteLine($"Now you have {_score} points");
         }
 
 
