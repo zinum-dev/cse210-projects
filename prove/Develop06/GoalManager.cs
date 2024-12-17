@@ -129,16 +129,16 @@ public class GoalManager
             var type = goal.GetType();
             if (type == typeof(SimpleGoal))
             {
-                fileString += $"SimpleGoal|{goal.GetShortName()}|{goal.GetDescription()}|{goal.GetPoints()}|{goal.IsComplete()}";
+                fileString += $"SimpleGoal|{goal.GetShortName()}|{goal.GetDescription()}|{goal.GetPoints()}|{goal.IsComplete()}\n";
             }
             if (type == typeof(EternalGoal))
             {
-                fileString += $"EternalGoal|{goal.GetShortName()}|{goal.GetDescription()}|{goal.GetPoints()}";
+                fileString += $"EternalGoal|{goal.GetShortName()}|{goal.GetDescription()}|{goal.GetPoints()}\n";
             }
             if (goal is ChecklistGoal checklistGoal)
             {
                 ChecklistGoal auxGoal = goal as ChecklistGoal;
-                fileString += $"ChecklistGoal|{auxGoal.GetShortName()}|{auxGoal.GetDescription()}|{auxGoal.GetPoints()}|{auxGoal.GetBonus()}|{auxGoal.GetTarget()}|{auxGoal.GetAmountCompleted()}";
+                fileString += $"ChecklistGoal|{auxGoal.GetShortName()}|{auxGoal.GetDescription()}|{auxGoal.GetPoints()}|{auxGoal.GetBonus()}|{auxGoal.GetTarget()}|{auxGoal.GetAmountCompleted()}\n";
             }
         }
         File.WriteAllText(filename, fileString);
@@ -149,15 +149,51 @@ public class GoalManager
         string filename = "goals.txt";
         if (File.Exists(filename))
         {
-            string jsonString = File.ReadAllText(filename);
+            string[] lines = File.ReadAllLines(filename);
+            _score = int.Parse(lines.First());
 
+            foreach (string line in lines)
+            {
+                if (string.IsNullOrWhiteSpace(line)) continue; // Skip empty lines
 
+            // Split line into parts
+                string[] parts = line.Split('|');
+                string type = parts[0];
 
-            var template = new { _score = 0, _goals = new List<Goal>() };
-            var data = JsonSerializer.Deserialize(jsonString, template.GetType());
-            
-            _score = ((dynamic)data)._score;
-            _goals = ((dynamic)data)._goals;
+                switch (type)
+                {
+                    case "SimpleGoal":
+                        _goals.Add(new SimpleGoal(
+                            shortName: parts[1],
+                            description: parts[2],
+                            points: int.Parse(parts[3]),
+                            isComplete: bool.Parse(parts[4])
+                        ));
+                        break;
+
+                    case "EternalGoal":
+                        _goals.Add(new EternalGoal(
+                            shortName: parts[1],
+                            description: parts[2],
+                            points: int.Parse(parts[3])
+                        ));
+                        break;
+
+                    case "ChecklistGoal":
+                        _goals.Add(new ChecklistGoal(
+                            shortName: parts[1],
+                            description: parts[2],
+                            points: int.Parse(parts[3]),
+                            bonus: int.Parse(parts[4]),
+                            target: int.Parse(parts[5]),
+                            amountCompleted: int.Parse(parts[6])
+                        ));
+                        break;
+
+                    default:
+                        break;
+                }
+            }
             
         }
         else

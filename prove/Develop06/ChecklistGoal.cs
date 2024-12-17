@@ -12,6 +12,14 @@ class ChecklistGoal : Goal
         _bonus = bonus;
     }
 
+    public ChecklistGoal(string shortName, string description, int points, int target, int bonus, int amountCompleted) : base(shortName,  description, points)
+    {
+        _amountCompleted = 0;
+        _target = target;
+        _bonus = bonus;
+        _amountCompleted = amountCompleted;
+    }
+
     public int GetAmountCompleted() => _amountCompleted;
     public void SetAmountCompleted(int amount) => _amountCompleted = amount;
     public int GetTarget() => _target;
